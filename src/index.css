@@ -16,3 +16,8 @@
   --font-manrope: "Manrope";
   --font-inter: "Inter";
 }
+
+img {
+  user-select: none;
+  pointer-events: none;
+}

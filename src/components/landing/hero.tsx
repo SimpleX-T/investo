@@ -6,7 +6,7 @@ export default function HeroSection() {
         backgroundImage:
           "linear-gradient(90deg, rgba(0, 0, 0, 0.02) 1px,transparent 0)",
         WebkitBackgroundSize: "4rem 4rem",
-        backgroundSize: "7rem 7rem",
+        backgroundSize: "4rem 4rem",
         backgroundPosition: "fixed",
       }}
     >
