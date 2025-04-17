@@ -83,8 +83,8 @@ export default function CTASection() {
         </div>
 
         <div className="w-full md:w-[40%]">
-          <div className="text-center px-4 md:p-0 mb-6 md:text-left">
-            <h2 className="font-bold text-[32px] md:text-5xl mb-4">
+          <div className="px-4 md:p-0 mb-6 text-left">
+            <h2 className="font-bold text-[32px] md:text-5xl mb-4 w-[24ch]">
               Transforming Transactions, One Click at a Time.
             </h2>
             <p className="text-[14px] md:text-md md:w-[50ch] px-4 md:p-0">
