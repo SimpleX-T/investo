@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #f3f3f5;
+  --color-primary-100: #f0f0f2;
+  --color-secondary: #171717;
+  --color-yellow: #d1f701;
+  --color-blue: #5945fd;
+  --color-gray: #e9e9e9;
+  --color-gray-100: #f1f5f9;
+  --color-text-light: #ffffff;
+  --color-text-dark: #171717;
+  --color-text-gray: #595959;
+  --color-grid-black: #d0d5dd;
+
+  --font-manrope: "Manrope";
+  --font-inter: "Inter";
+}
