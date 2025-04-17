@@ -51,8 +51,8 @@ export default function FAQSection() {
       <div>
         <div className="flex w-full max-w-7xl mx-auto items-end justify-between space-y-24 md:space-y-0 flex-col md:flex-row">
           <div className="w-full md:w-[50%]">
-            <div className="text-center px-4 md:p-0 mb-6 md:text-left">
-              <h2 className="font-bold text-[32px] md:text-5xl mb-4 w-[15ch]">
+            <div className="text-center w-full px-4 md:p-0 mb-6 md:text-left border">
+              <h2 className="font-bold text-[32px] md:text-5xl mb-4 w-[15ch] mx-auto">
                 Smooth and Easy International Transfers.
               </h2>
               <p className="text-[14px] md:text-md md:w-[50ch] px-4 md:p-0">
