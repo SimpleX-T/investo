@@ -17,39 +17,7 @@
   --font-inter: "Inter";
 }
 
-.hamburger-toggle {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 6px;
-  width: 40px;
-  height: 40px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  z-index: 10;
-}
-
-.bar {
-  height: 3px;
-  width: 100%;
-  background-color: #333;
-  transition: transform 0.4s ease, opacity 0.3s ease;
-  border-radius: 2px;
-}
-
-/* Top bar animation */
-.bar.top.open {
-  transform: translateY(9px) rotate(45deg);
-}
-
-/* Middle bar disappears */
-.bar.middle.open {
-  opacity: 0;
-}
-
-/* Bottom bar animation */
-.bar.bottom.open {
-  transform: translateY(-9px) rotate(-45deg);
+img {
+  user-select: none;
+  pointer-events: none;
 }

@@ -3,6 +3,7 @@ import CTASection from "../components/landing/cta";
 import FAQSection from "../components/landing/FAQ";
 import HeroSection from "../components/landing/hero";
 import ReviewsSection from "../components/landing/reviews";
+import DownloadSection from "../components/landing/download";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <CTASection />
       <FAQSection />
       <ReviewsSection />
+      <DownloadSection />
     </main>
   );
 }
