@@ -9,7 +9,7 @@ import {
 
 export default function Footer() {
   return (
-    <footer className="text-text-dark py-10 px-6 md:px-16 lg:px-32 font-manrope">
+    <footer className="text-text-dark py-10 px-6 md:px-16 lg:px-32 font-manrope bg-primary-100">
       <div className="flex flex-col md:flex-row justify-between gap-10">
         <motion.div
           className="flex-1"

@@ -1,6 +1,7 @@
 const DownloadSection = () => {
   return (
     <section className="py-20 px-4 md:px-8 relative font-manrope">
+      <div className="bg-primary-100 w-full h-96 absolute bottom-0 left-0" />
       <div className="max-w-7xl mx-auto">
         <div className="md:h-[483px] flex items-center justify-center p-8 md:p-12 rounded-3xl border border-[#282D45] relative overflow-hidden bg-[#171717]">
           <div className="absolute w-full h-full z-0 pointer-events-none bg-[url('/images/rows.svg')] bg-cover bg-no-repeat opacity-50" />
