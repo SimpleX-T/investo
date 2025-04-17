@@ -62,11 +62,14 @@ export default function Header() {
       </section>
 
       <nav
-        className={`md:hidden h-screen w-72 pt-12 bg-secondary fixed right-0 top-0 ${
-          isMenuOpen ? "translate-x-0" : "translate-x-full"
+        className={`md:hidden h-screen w-full pt-12 bg-secondary fixed right-0 bottom-0 z-50 ${
+          isMenuOpen ? "translate-y-0" : "translate-y-full"
         } transition-transform duration-300`}
+        style={{
+          transitionTimingFunction: "ease-out",
+        }}
       >
-        <div className="absolute top-4 right-4">
+        <div className="absolute top-12 right-6">
           <button
             className="bg-yellow flex items-center cursor-pointer hover:bg-yellow/80 transition-colors duration-300 justify-center p-4 rounded-full"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
