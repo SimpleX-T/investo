@@ -122,7 +122,7 @@ export default function Footer() {
         transition={{ duration: 0.7 }}
       >
         <p className="text-sm text-gray-600">
-          Copyright © 2025 Inveto. All Rights Reserved
+          Copyright © 2025 Investo. All Rights Reserved
         </p>
         <div className="flex gap-4 mt-4 sm:mt-0">
           <a href="#">
