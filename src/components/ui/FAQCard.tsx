@@ -1,5 +1,22 @@
-import { FaMinus, FaPlus } from "react-icons/fa6";
 import { useRef, useEffect, useState } from "react";
+import { motion } from "motion/react";
+
+interface FAQCardProps {
+  id: number;
+  isOpen: number;
+  onclick: (id: number) => void;
+  question: string;
+  answer: string;
+}
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, delay: i * 0.1, ease: "easeOut" },
+  }),
+};
 
 export default function FAQCard({
   answer,
@@ -7,13 +24,7 @@ export default function FAQCard({
   id,
   isOpen,
   onclick,
-}: {
-  answer: string;
-  question: string;
-  id: number;
-  isOpen: number;
-  onclick: (id: number) => void;
-}) {
+}: FAQCardProps) {
   const contentRef = useRef<HTMLDivElement>(null);
   const [maxHeight, setMaxHeight] = useState("0px");
 
@@ -26,16 +37,26 @@ export default function FAQCard({
   }, [isOpen, id]);
 
   return (
-    <div className="border-b border-gray-200 transition-all duration-300 overflow-hidden">
+    <motion.div
+      variants={fadeInUp}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      custom={id}
+      className="border-b border-gray-200 transition-all duration-300 overflow-hidden"
+    >
       <div
-        className="flex items-start justify-between p-2 md:p-4 cursor-pointer"
+        className="flex items-start justify-between p-2 md:p-4 cursor-pointer gap2"
         onClick={() => onclick(id)}
       >
-        <h2 className="font-semibold text-[14px] md:text-2xl mb-4">
-          {question}
-        </h2>
-        <button className="p-2 cursor-pointer">
-          {isOpen === id ? <FaMinus /> : <FaPlus />}
+        <h2 className="font-semibold text-md md:text-2xl mb-4">{question}</h2>
+        <button className="p-2 cursor-pointer text-xl relative w-6 h-6 flex items-center justify-center">
+          <span className=" bg-text-dark absolute h-1 rounded-full w-6" />
+          <span
+            className={`absolute bg-text-dark h-1 rounded-full w-6 transition-transform duration-500 ease-out ${
+              isOpen === id ? "rotate-0" : "rotate-270"
+            }`}
+          />
         </button>
       </div>
 
@@ -49,6 +70,6 @@ export default function FAQCard({
       >
         <div className="p-4 text-sm md:text-base text-gray-600">{answer}</div>
       </div>
-    </div>
+    </motion.div>
   );
 }

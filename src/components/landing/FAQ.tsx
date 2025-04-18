@@ -3,24 +3,44 @@ import { FAQs } from "../../lib/constants";
 import FAQCard from "../ui/FAQCard";
 import { useState } from "react";
 import { FaCheck } from "react-icons/fa";
+import { motion } from "motion/react";
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
 
 export default function FAQSection() {
   const [isOpen, setIsOpen] = useState<number>(-1);
 
   const handleOpen = (id: number) => {
-    if (isOpen === id) {
-      setIsOpen(-1);
-    } else {
-      setIsOpen(id);
-    }
+    setIsOpen(isOpen === id ? -1 : id);
   };
 
   return (
     <section className="py-12 w-full font-manrope">
-      <div className="flex w-full max-w-7xl mx-auto justify-between flex-col md:flex-row mb-32">
-        <div className="w-full md:w-[30%] px-4 md:px-0 mb-12 md:mb-0">
-          <p className="text-text-gray mb-4 text-md">FAQ's</p>
-          <h2 className="font-bold text-[32px] md:text-5xl leading-tight mb-4">
+      <motion.div
+        className="flex w-full max-w-7xl mx-auto justify-between flex-col md:flex-row mb-32"
+        variants={fadeInUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <motion.div
+          className="w-full md:w-[30%] px-6 md:px-0 mb-12 md:mb-0"
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          <p className="text-text-gray mb-4 text-md text-center md:text-left bg-primary-100/50 py-1 px-4 rounded-full w-fit mx-auto md:mx-0 border border-secondary/20">
+            FAQ's
+          </p>
+          <h2 className="font-bold text-3xl md:text-5xl mb-4 text-center md:text-left">
             Frequently Asked Questions
           </h2>
           <p className="text-sm md:text-base mb-6 text-gray-600">
@@ -32,9 +52,15 @@ export default function FAQSection() {
           >
             info@investo.com
           </Link>
-        </div>
+        </motion.div>
 
-        <div className="w-full md:w-[65%] px-4 border-t border-primary-100">
+        <motion.div
+          className="w-full md:w-[65%] px-6 border-t border-primary-100"
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
           {FAQs.map((faq, idx) => (
             <FAQCard
               key={idx}
@@ -45,58 +71,61 @@ export default function FAQSection() {
               answer={faq.answer}
             />
           ))}
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
-      <div>
-        <div className="flex w-full max-w-7xl mx-auto items-end justify-between space-y-24 md:space-y-0 flex-col md:flex-row">
-          <div className="w-full md:w-[50%]">
-            <div className="text-center px-4 md:p-0 mb-6 md:text-left">
-              <h2 className="font-bold text-[32px] md:text-5xl mb-4 w-[15ch]">
-                Smooth and Easy International Transfers.
-              </h2>
-              <p className="text-[14px] md:text-md md:w-[50ch] px-4 md:p-0">
-                With user-friendly features, competitive exchange rates, and
-                robust security measures, our platform simplifies international
-                transactions.
-              </p>
-            </div>
+      <motion.div
+        className="flex w-full max-w-7xl mx-auto items-end justify-between space-y-24 md:space-y-0 flex-col md:flex-row"
+        variants={fadeInUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <div className="w-full md:w-[50%]">
+          <div className="px-6 md:p-0 mb-6">
+            <h2 className="font-bold text-3xl md:text-5xl mb-4 text-center md:text-left">
+              Smooth and Easy International Transfers.
+            </h2>
+            <p className="text-[14px] md:text-md text-center md:text-left px-3 md:px-0 md:pr-40">
+              With user-friendly features, competitive exchange rates, and
+              robust security measures, our platform simplifies international
+              transactions.
+            </p>
+          </div>
 
-            <div className="px-4 md:p-0">
-              <div className="mb-12 space-y-4">
-                <div className="flex items-center gap-4">
+          <div className="px-6 md:p-0">
+            <div className="mb-12 space-y-4">
+              {[
+                "Seamless international money transfers.",
+                "Competitive exchange rates offered daily.",
+              ].map((text, i) => (
+                <div key={i} className="flex items-center gap-4">
                   <span className="bg-gray-100 p-2 rounded-full flex items-center justify-center">
                     <FaCheck />
                   </span>
-                  <p className="text-sm">
-                    Seamless international money transfers.
-                  </p>
+                  <p className="text-sm">{text}</p>
                 </div>
-                <div className="flex items-center gap-4">
-                  <span className="bg-gray-100 p-2 rounded-full flex items-center justify-center">
-                    <FaCheck />
-                  </span>
-                  <p className="text-sm">
-                    Competitive exchange rates offered daily.
-                  </p>
-                </div>
-              </div>
+              ))}
+            </div>
 
-              <div>
-                <button className="bg-secondary rounded-full text-primary py-2 px-4 cursor-pointer hover:bg-secondary/80 transition-colors duration-300">
-                  Get Started
-                </button>
-              </div>
+            <div>
+              <button className="bg-secondary rounded-full text-primary py-3 px-6 cursor-pointer hover:bg-secondary/80 transition-colors duration-300">
+                Get Started
+              </button>
             </div>
           </div>
-
-          <div className="w-full md:w-[50%] flex items-end justify-start">
-            {/* <div className="w-full md:w-[568px] md:h-[400px] rounded-xl bg-primary-100 flex flex-col py-8 px-4 space-y-3 justify-center"> */}
-            <img src="/images/world_map.svg" alt="world map" />
-            {/* </div> */}
-          </div>
         </div>
-      </div>
+
+        <motion.div
+          className="w-full md:w-[50%] flex items-end justify-start"
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          <img src="/images/world_map.svg" alt="world map" />
+        </motion.div>
+      </motion.div>
     </section>
   );
 }
